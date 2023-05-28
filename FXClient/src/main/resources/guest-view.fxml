@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.GuestController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="1000.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="712.0" text="Books">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="searchField" prefHeight="25.0" prefWidth="511.0" promptText="Search">
+                     <HBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#searchBooks" text="Search" />
+               </children>
+            </HBox>
+            <TableView fx:id="tableBooks" prefHeight="433.0" prefWidth="980.0">
+              <columns>
+                <TableColumn fx:id="nameColumn" prefWidth="400.0" text="Name" />
+                <TableColumn fx:id="authorColumn" prefWidth="400.0" text="Author" />
+                  <TableColumn fx:id="terminalColumn" prefWidth="180.0" text="Terminal" />
+              </columns>
+            </TableView>
+            <Hyperlink onAction="#logInGuest" text="Log In" />
+         </children>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

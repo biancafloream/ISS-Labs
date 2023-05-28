@@ -1,0 +1,8 @@
+rootProject.name = 'Library'
+include 'Model'
+include 'Persistance'
+include 'Services'
+include 'Server'
+include 'Networking'
+include 'FXClient'
+
