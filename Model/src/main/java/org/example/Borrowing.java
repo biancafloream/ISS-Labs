@@ -19,15 +19,18 @@ public class Borrowing implements Serializable {
     private Timestamp borrowingDate;
     @Column(name = "returnDate")
     private Timestamp returnDate;
+    @Column(name = "status")
+    private String status;
 
     public Borrowing() {
     }
 
-    public Borrowing(Book book, Reader reader, Timestamp borrowingDate, Timestamp returnDate) {
+    public Borrowing(Book book, Reader reader, Timestamp borrowingDate, Timestamp returnDate, String status) {
         this.book = book;
         this.reader = reader;
         this.borrowingDate = borrowingDate;
         this.returnDate = returnDate;
+        this.status = status;
     }
 
     public Book getBook() {
@@ -60,6 +63,14 @@ public class Borrowing implements Serializable {
 
     public void setReturnDate(Timestamp returnDate) {
         this.returnDate = returnDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override

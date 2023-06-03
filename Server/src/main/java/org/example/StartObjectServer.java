@@ -4,7 +4,6 @@ import org.example.utils.AbstractServer;
 import org.example.utils.ObjectConcurrentServer;
 import org.example.utils.ServerException;
 
-import java.io.IOException;
 import java.util.Properties;
 
 public class StartObjectServer {
@@ -20,9 +19,10 @@ public class StartObjectServer {
         RepoBorrowing repoBorrowings = new RepoBorrowing();
         RepoReader repoReaders = new RepoReader();
         RepoTerminal repoTerminals = new RepoTerminal();
+        RepoLibrarians repoLibrarians = new RepoLibrarians();
 
-        IService service = new ServiceImpl(repoBooks, repoBorrowings, repoReaders, repoTerminals ,"127.0.0.1" , defaultPort);
-
+        IService service = new ServiceImpl(repoBooks, repoBorrowings, repoReaders, repoLibrarians, repoTerminals ,"127.0.0.1" , defaultPort);
+        System.out.println(repoBorrowings.findAllFromTerminal(2));
         System.out.println("Starting server on port: " + defaultPort);
         AbstractServer server = new ObjectConcurrentServer(defaultPort, service);
 

@@ -1,4 +1,4 @@
-package org.example.objectproto;
+package org.example.objectproto.requestsResponses;
 
 public class ErrorResponse implements Response{
     private final String message;

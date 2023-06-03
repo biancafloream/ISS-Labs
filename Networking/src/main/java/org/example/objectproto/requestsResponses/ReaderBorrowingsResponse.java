@@ -1,4 +1,4 @@
-package org.example.objectproto;
+package org.example.objectproto.requestsResponses;
 
 import org.example.Borrowing;
 

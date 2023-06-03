@@ -15,4 +15,15 @@ public interface IService {
     void setClient(IObserver client);
 
     void notifyClients();
+
+    Librarian librarianLogIn(String email, String password);
+
+    Iterable<Borrowing> findAllFromTerminal(Integer id);
+    Iterable<Book> findAllBooksFromTerminal(Integer id);
+
+    void addBook(Book book);
+    Book deleteBook(Integer id);
+    void updateBook(Book book, Integer id);
+    void returnBook(Borrowing borrowing);
+    void acceptReturn(Borrowing borrowing);
 }

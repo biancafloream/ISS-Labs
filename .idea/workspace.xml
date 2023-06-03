@@ -4,18 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbebd92e-a7da-4407-aee6-19236622a451" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+    <list default="true" id="bbebd92e-a7da-4407-aee6-19236622a451" name="Changes" comment="Iter 1">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/06f5ff8f-3bfe-4b9a-a278-e32a6184fef7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/06f5ff8f-3bfe-4b9a-a278-e32a6184fef7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FXClient/src/main/java/org/example/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FXClient/src/main/java/org/example/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FXClient/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FXClient/src/main/java/org/example/ReaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FXClient/src/main/java/org/example/ReaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FXClient/src/main/resources/reader-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/FXClient/src/main/resources/librarian-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/src/main/java/org/example/Borrowing.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/org/example/Borrowing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/AllBooksRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/AllBooksRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/AllBooksResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/AllBooksResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/BorrowingRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/BorrowingRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/BorrowingResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/BorrowingResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/ClientObjectWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/ClientObjectWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/LogInReaderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/LogInReaderRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/LogInReaderResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/LogInReaderResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/OkResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/OkResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/ReaderBorrowingsRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/ReaderBorrowingsRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/ReaderBorrowingsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/ReaderBorrowingsResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/SearchedBooksRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/SearchedBooksRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/SearchedBooksResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/SearchedBooksResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/ServicesObjectProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/ServicesObjectProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/UpdateBorrowingsBooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/UpdateBorrowingsBooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/UpdateResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Networking/src/main/java/org/example/objectproto/requestsResponses/UpdateResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Persistance/src/main/java/org/example/IRepoBooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/src/main/java/org/example/IRepoBooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Persistance/src/main/java/org/example/IRepoBorrowing.java" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/src/main/java/org/example/IRepoBorrowing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Persistance/src/main/java/org/example/RepoBooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/src/main/java/org/example/RepoBooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Persistance/src/main/java/org/example/RepoBorrowing.java" beforeDir="false" afterPath="$PROJECT_DIR$/Persistance/src/main/java/org/example/RepoBorrowing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/org/example/ServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/org/example/ServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/org/example/StartObjectServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/org/example/StartObjectServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/src/main/java/org/example/IService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/org/example/IService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +136,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-16&quot;,
     &quot;last_directory_selection&quot;: &quot;D:/Scoala/ISS/Library/FXClient/src/main/java/org/example&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Scoala/ISS/Library/Networking/src/main/java/org/example/objectproto&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Scoala/ISS/Library/FXClient/src/main/resources&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
@@ -132,8 +153,8 @@
       <recent name="org.example" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Scoala\ISS\Library\Networking\src\main\java\org\example\objectproto" />
       <recent name="D:\Scoala\ISS\Library\FXClient\src\main\resources" />
+      <recent name="D:\Scoala\ISS\Library\Networking\src\main\java\org\example\objectproto" />
       <recent name="D:\Scoala\ISS\Library\Networking\src\main\java\org\example\utils" />
       <recent name="D:\Scoala\ISS\Library\Persistance\src\main\resources" />
     </key>
@@ -209,8 +230,19 @@
       <workItem from="1684928180822" duration="13000" />
       <workItem from="1685097897626" duration="4100000" />
       <workItem from="1685177183993" duration="54000" />
-      <workItem from="1685292455424" duration="6932000" />
+      <workItem from="1685292455424" duration="13593000" />
+      <workItem from="1685347925444" duration="19089000" />
+      <workItem from="1685425124586" duration="5056000" />
+      <workItem from="1685431457555" duration="73000" />
     </task>
+    <task id="LOCAL-00001" summary="Iter 1">
+      <created>1685299634146</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685299634146</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,5 +258,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Iter 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Iter 1" />
   </component>
 </project>

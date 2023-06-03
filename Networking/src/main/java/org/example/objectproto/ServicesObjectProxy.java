@@ -1,6 +1,7 @@
 package org.example.objectproto;
 
 import org.example.*;
+import org.example.objectproto.requestsResponses.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -172,6 +173,107 @@ public class ServicesObjectProxy implements IService {
     @Override
     public void notifyClients() {
 
+    }
+
+    @Override
+    public Librarian librarianLogIn(String email, String password) {
+        initializeConnection();
+        try {
+            sendRequest(new LogInLibrarianRequest(email, password));
+            Response response = readResponse();
+            if (response instanceof LogInLibrarianResponse) {
+                return ((LogInLibrarianResponse) response).getLibrarian();
+            }
+            if (response instanceof ErrorResponse) {
+                //closeConnection();
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Iterable<Borrowing> findAllFromTerminal(Integer id) {
+        try {
+            sendRequest(new BorrowingsTerminalRequest(id));
+            Response response = readResponse();
+            if (response instanceof BorrowingsTerminalResponse) {
+                System.out.println(((BorrowingsTerminalResponse) response).getBorrowings());
+                return ((BorrowingsTerminalResponse) response).getBorrowings();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Iterable<Book> findAllBooksFromTerminal(Integer id) {
+        try {
+            sendRequest(new BooksTerminalRequest(id));
+            Response response = readResponse();
+            if (response instanceof BooksTerminalResponse) {
+                System.out.println(((BooksTerminalResponse) response).getBooks());
+                return ((BooksTerminalResponse) response).getBooks();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public void addBook(Book book) {
+        try {
+            sendRequest(new AddBookRequest(book));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Book deleteBook(Integer id) {
+        try {
+            sendRequest(new DeleteBookRequest(id));
+            Response response = readResponse();
+            if (response instanceof DeleteBookResponse) {
+                System.out.println(((DeleteBookResponse) response).getBook());
+                client.update();
+                return ((DeleteBookResponse) response).getBook();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public void updateBook(Book book, Integer id) {
+        try {
+            sendRequest(new UpdateBookRequest(book, id));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void returnBook(Borrowing borrowing) {
+        try {
+            sendRequest(new ReturnRequest(borrowing));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void acceptReturn(Borrowing borrowing) {
+        try {
+            sendRequest(new AcceptReturnRequest(borrowing));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private class ReaderThread implements Runnable {

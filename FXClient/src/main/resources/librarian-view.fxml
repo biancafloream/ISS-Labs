@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.LibrarianController">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="600.0" prefWidth="1000.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="600.0" prefWidth="294.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="132.0" prefWidth="294.0" text="Borrowings">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tableBorrowings" prefHeight="409.0" prefWidth="700.0">
+                           <columns>
+                              <TableColumn fx:id="nameReaderColumnBorrowings" prefWidth="90.0" text="Reader" />
+                              <TableColumn fx:id="nameBookColumnBorrowings" prefWidth="150.0" text="Book" />
+                              <TableColumn fx:id="authorColumnBorrowings" prefWidth="150.0" text="Author" />
+                              <TableColumn fx:id="returnDateColumnBorrowings" prefWidth="100.0" text="Return Date" />
+                           </columns>
+                        </TableView>
+                        <Button mnemonicParsing="false" onAction="#acceptReturn" text="Accept return">
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="600.0" prefWidth="698.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="70.0" prefWidth="712.0" text="Books">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="searchBookField" prefHeight="25.0" prefWidth="511.0" promptText="Search book...">
+                                 <HBox.margin>
+                                    <Insets left="50.0" right="50.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button mnemonicParsing="false" onAction="#searchBooks" text="Search" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="409.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tableBooks" prefHeight="409.0" prefWidth="450.0">
+                                 <columns>
+                                    <TableColumn fx:id="nameColumn" prefWidth="175.0" text="Name" />
+                                    <TableColumn fx:id="authorColumn" prefWidth="175.0" text="Author" />
+                                    <TableColumn fx:id="noOfCopiesColumn" prefWidth="100.0" text="NoOfCopies" />
+                                 </columns>
+                              </TableView>
+                              <VBox alignment="CENTER" prefHeight="406.0" prefWidth="249.0">
+                                 <children>
+                                    <TextField fx:id="isbnField" prefHeight="25.0" prefWidth="205.0" promptText="ISBN">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="nameField" prefHeight="25.0" prefWidth="205.0" promptText="Name">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="authorField" prefHeight="25.0" prefWidth="205.0" promptText="Author">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="copiesField" prefHeight="25.0" prefWidth="205.0" promptText="Number of copies">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="69.0" prefWidth="698.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addBook" text="Add book">
+                                 <HBox.margin>
+                                    <Insets left="30.0" right="30.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#updateBook" text="Update book">
+                                 <HBox.margin>
+                                    <Insets left="30.0" right="30.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#deleteBook" text="Delete book">
+                                 <HBox.margin>
+                                    <Insets left="30.0" right="30.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

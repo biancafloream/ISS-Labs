@@ -1,8 +1,7 @@
 package org.example.objectproto;
 
-import org.example.IObserver;
-import org.example.IService;
-import org.example.Reader;
+import org.example.*;
+import org.example.objectproto.requestsResponses.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -61,7 +60,11 @@ public class ClientObjectWorker implements Runnable, IObserver {
 
     @Override
     public void update() {
-
+        try {
+            sendResponse(new UpdateBorrowingsBooks());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void sendResponse(Response response) throws IOException{
@@ -90,6 +93,16 @@ public class ClientObjectWorker implements Runnable, IObserver {
             return new ReaderBorrowingsResponse(server.findAllForReader(readerReq.getId()));
         }
 
+        if (request instanceof BorrowingsTerminalRequest borrowingsReq){
+            System.out.println("Reader's borrowings request ...");
+            return new BorrowingsTerminalResponse(server.findAllFromTerminal(borrowingsReq.getId()));
+        }
+
+        if (request instanceof BooksTerminalRequest booksReq){
+            System.out.println("Reader's borrowings request ...");
+            return new BooksTerminalResponse(server.findAllBooksFromTerminal(booksReq.getId()));
+        }
+
         if (request instanceof BorrowingRequest borrowingReq){
             System.out.println("Add borrowing request ...");
             server.addBorrowing(borrowingReq.getBook(), borrowingReq.getReader());
@@ -110,6 +123,53 @@ public class ClientObjectWorker implements Runnable, IObserver {
             }
         }
 
+        if (request instanceof LogInLibrarianRequest logReq){
+            System.out.println("Login request ...");
+            String email=logReq.getEmail();
+            String password=logReq.getPassword();
+
+            Librarian librarianFound = server.librarianLogIn(email, password);
+            if (librarianFound == null) {
+                return new ErrorResponse("Wrong credentials");
+            } else {
+                server.setClient(this);
+                return new LogInLibrarianResponse(librarianFound);
+            }
+        }
+
+        if (request instanceof AddBookRequest addReq) {
+            System.out.println("Add book request ...");
+            server.addBook(addReq.getBook());
+            return new UpdateBorrowingsBooks();
+        }
+
+        if (request instanceof UpdateBookRequest updateReq) {
+            System.out.println("Update book request ...");
+            server.updateBook(updateReq.getBook(), updateReq.getId());
+            return new UpdateBorrowingsBooks();
+        }
+        if (request instanceof DeleteBookRequest deleteReq) {
+            System.out.println("Delete book request ...");
+            Book book = server.deleteBook(deleteReq.getId());
+            if (book == null) {
+                return new ErrorResponse("Book doesn't exist");
+            }
+            else {
+                return new DeleteBookResponse(book);
+            }
+        }
+
+        if (request instanceof ReturnRequest returnReq) {
+            System.out.println("Return book request ...");
+            server.returnBook(returnReq.getBorrowing());
+            return new UpdateBorrowingsBooks();
+        }
+
+        if (request instanceof AcceptReturnRequest returnReq) {
+            System.out.println("Return book request ...");
+            server.acceptReturn(returnReq.getBorrowing());
+            return new UpdateBorrowingsBooks();
+        }
         return null;
     }
 

@@ -25,6 +25,8 @@ public class ReaderController implements IObserver {
     @FXML
     public TableColumn<Borrowing, String> nameColumnBorrowings;
     @FXML
+    public TableColumn<Borrowing, String> statusColumnBorrowings;
+    @FXML
     public TableColumn<Borrowing, String> authorColumnBorrowings;
     @FXML
     public TableColumn<Borrowing, String> terminalColumnBorrowings;
@@ -60,10 +62,11 @@ public class ReaderController implements IObserver {
         authorColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAuthor()));
         terminalColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTerminal().getName()));
         nameColumnBorrowings.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBook().getName()));
+        statusColumnBorrowings.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatus()));
         authorColumnBorrowings.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBook().getAuthor()));
-        terminalColumnBorrowings.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBook().getTerminal().getName()));
-        startDateColumnBorrowings.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getBorrowingDate()));
         returnDateColumnBorrowings.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getReturnDate()));
+        startDateColumnBorrowings.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getBorrowingDate()));
+        terminalColumnBorrowings.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBook().getTerminal().getName()));
     }
 
     public void setBorrowings() {
@@ -117,5 +120,16 @@ public class ReaderController implements IObserver {
         }
         tableBooks.getItems().clear();
         tableBooks.getItems().addAll(books);
+    }
+
+    public void returnBook(ActionEvent actionEvent) {
+        int index = tableBooksBorrowings.getSelectionModel().getSelectedIndex();
+        if (index != -1) {
+            Borrowing borrowing = tableBooksBorrowings.getSelectionModel().getSelectedItem();
+            server.returnBook(borrowing);
+            Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmation.setContentText("book to be returned");
+            confirmation.show();
+        }
     }
 }

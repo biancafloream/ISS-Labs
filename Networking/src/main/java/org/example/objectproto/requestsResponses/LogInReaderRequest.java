@@ -1,4 +1,4 @@
-package org.example.objectproto;
+package org.example.objectproto.requestsResponses;
 
 public class LogInReaderRequest implements Request {
     private final String email;

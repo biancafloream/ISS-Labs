@@ -1,4 +1,4 @@
-package org.example.objectproto;
+package org.example.objectproto.requestsResponses;
 
 public class ReaderBorrowingsRequest implements Request{
     private Integer id;

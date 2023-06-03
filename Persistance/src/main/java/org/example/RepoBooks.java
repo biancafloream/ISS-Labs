@@ -50,11 +50,32 @@ public class RepoBooks implements IRepoBooks<Integer, Book>{
 
     @Override
     public void save(Book entity) {
-
+        try (Session session = sessionFactory.openSession()) {
+            try {
+                Transaction transaction = session.beginTransaction();
+                session.save(entity);
+                transaction.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
     public Book delete(Integer integer) {
+        try (Session session = sessionFactory.openSession()) {
+            try {
+                Transaction transaction = session.beginTransaction();
+                Book existingBook = session.get(Book.class, integer);
+                if (existingBook != null) {
+                    session.delete(existingBook);
+                }
+                transaction.commit();
+                return existingBook;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return null;
     }
 
@@ -66,6 +87,8 @@ public class RepoBooks implements IRepoBooks<Integer, Book>{
                 Book existingBook = session.get(Book.class, integer);
                 if (existingBook != null) {
                     existingBook.setNoOfCopies(entity.getNoOfCopies());
+                    existingBook.setAuthor(entity.getAuthor());
+                    existingBook.setName(entity.getName());
                     session.update(existingBook);
                 }
                 transaction.commit();
@@ -88,6 +111,23 @@ public class RepoBooks implements IRepoBooks<Integer, Book>{
                 Transaction transaction = session.beginTransaction();
                 Query<Book> query = session.createQuery("FROM Book WHERE lower(name) like lower(:searched) OR lower(author) like lower(:searched)", Book.class);
                 query.setParameter("searched", "%" + searched + "%");
+                List<Book> result = query.list();
+                transaction.commit();
+                return result;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Iterable<Book> findAllByTerminal(Integer id) {
+        try (Session session = sessionFactory.openSession()) {
+            try {
+                Transaction transaction = session.beginTransaction();
+                Query<Book> query = session.createQuery("SELECT b FROM Book b WHERE b.terminal.id=:id", Book.class);
+                query.setParameter("id", id);
                 List<Book> result = query.list();
                 transaction.commit();
                 return result;

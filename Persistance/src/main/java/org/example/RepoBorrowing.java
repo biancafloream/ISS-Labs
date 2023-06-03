@@ -96,4 +96,42 @@ public class RepoBorrowing implements IRepoBorrowing<Integer, Borrowing>{
         }
         return null;
     }
+
+    @Override
+    public Iterable<Borrowing> findAllFromTerminal(Integer id) {
+        try (Session session = sessionFactory.openSession()) {
+            try {
+                Transaction transaction = session.beginTransaction();
+                Query<Borrowing> query = session.createQuery("SELECT b FROM Borrowing b WHERE b.book.terminal.id=:id", Borrowing.class);
+                query.setParameter("id", id);
+                List<Borrowing> result = query.list();
+                transaction.commit();
+                return result;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void update(Borrowing entity, Integer idBook, Integer idReader) {
+        try (Session session = sessionFactory.openSession()) {
+            try {
+                Transaction transaction = session.beginTransaction();
+                Query<Borrowing> query = session.createQuery("SELECT b FROM Borrowing b WHERE b.book.id=:id1 and b.reader.id=:id2", Borrowing.class);
+                query.setParameter("id1", idBook);
+                query.setParameter("id2", idReader);
+                List<Borrowing> result = query.list();
+                if (!result.isEmpty()) {
+                    Borrowing existingBorrowing = result.get(0);
+                    existingBorrowing.setStatus(entity.getStatus());
+                    session.update(existingBorrowing);
+                }
+                transaction.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
